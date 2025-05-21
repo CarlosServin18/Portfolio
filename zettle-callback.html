@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Autorización Zettle</title>
+</head>
+<body>
+  <h2>Autorización completada</h2>
+  <p id="resultado">Procesando...</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    if (code) {
+      document.getElementById("resultado").innerText =
+        "✅ Copia este código y pégalo en tu script de Python:\n\n" + code;
+    } else {
+      document.getElementById("resultado").innerText =
+        "⚠️ No se recibió ningún código de autorización.";
+    }
+  </script>
+</body>
+</html>
